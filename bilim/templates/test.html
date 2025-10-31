@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Testni boshlash</title>
+    <link rel="stylesheet" href="{% static 'css/style_test.css'%}">
+</head>
+<body>
+
+    <h1>Testga tayyormisiz?</h1>
+
+    <!-- Tugmalar konteyneri -->
+    <div class="tugmalar">
+        <!-- Testni boshlash tugmasi -->
+        <a href="{% url 'quiz' fan.id sinf.id %}" class="button_quiz">Testni boshlash</a>
+
+        <!-- Ortga qaytish tugmasi -->
+        <a href="{% url 'fan' sinf.id %}" class="button_quiz">Ortga qaytish</a>
+    </div>
+
+</body>
+</html>

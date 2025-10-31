@@ -1,0 +1,145 @@
+/* style_index.css */
+
+/* Umumiy stil */
+.index-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+
+}
+
+/* Asosiy konteyner - keng ekran uchun */
+.container_base {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 60px 50px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin: 40px auto;
+}
+
+.container_base:hover {
+    transform: translateY(-5px);
+}
+
+/* Katta sarlavhalar */
+h1 {
+    color: #2c3e50;
+    font-size: 50px;
+    font-weight: 1000;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+h3 {
+    color: #5d6d7e;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    line-height: 1.5;
+}
+
+/* Katta tugma */
+.btn {
+    display: inline-block;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    min-width: 200px;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #2980b9, #27ae60);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Katta ekranlar uchun */
+@media (min-width: 1200px) {
+    .container_base {
+        padding: 70px 60px;
+        max-width: 900px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 22px 70px;
+        font-size: 22px;
+        min-width: 250px;
+    }
+}
+
+/* O'rta ekranlar */
+@media (max-width: 992px) {
+    .container_base {
+        padding: 50px 40px;
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 18px 50px;
+        font-size: 18px;
+    }
+}
+
+/* Mobil qurilmalar */
+@media (max-width: 768px) {
+    .container_base {
+        padding: 40px 30px;
+        width: 90%;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .btn {
+        padding: 16px 40px;
+        font-size: 18px;
+        width: 100%;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,65 @@
+{% extends 'pluto/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- dashboard inner -->
+<div class="midde_cont">
+    <div class="container-fluid">
+        <div class="row column_title">
+            <div class="col-md-12">
+                <div class="page_title">
+                    <h2>O'QUVCHILARNING UMUMIY MA'LUMOTLARI</h2>
+                </div>
+            </div>
+        </div>
+        <form method="get" action="">
+            <div class="input-group mb-3">
+                <input type="text" name="fish" class="form-control" placeholder="FISh kiriting"
+                       value="{{ request.GET.fish }}">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Qidirish</button>
+                </div>
+            </div>
+        </form>
+        <!-- row -->
+        <div class="row column1">
+            <div class="col-md-12">
+                <div class="white_shd full margin_bottom_30">
+                    <div class="full graph_head">
+                    </div>
+                    <div class="row">
+                        {% for student in students %}
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 profile_details margin_bottom_30">
+                            <div class="contact_blog">
+                                <h4 class="brief">{{ student.school }}</h4>
+                                <div class="contact_inner">
+                                    <div class="left">
+                                        <h3>{{ student.FISh }}</h3>
+                                        <p><i class="fa fa-id-card"></i> Seriya: {{ student.seriya }}</p>
+                                        <p><i class="fa fa-hashtag"></i> Raqami: {{ student.raqami }}</p>
+                                        <p><i class="fa fa-graduation-cap"></i> Sinf: {{ student.sinf }}</p>
+                                        <p><i class="fa fa-venus-mars"></i> Jins: {{ student.jins }}</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="profile_contacts">
+                                            <img class="img-responsive"
+                                                 src="{% static 'pluto/images/people.png' %}" alt="#">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p class="text-center text-muted">O'quvchilar ma’lumotlari mavjud emas.</p>
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+    </div>
+    <!-- end dashboard inner -->
+</div>
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends 'pluto/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- dashboard inner -->
+<div class="midde_cont">
+    <div class="container-fluid">
+        <div class="row column_title">
+            <div class="col-md-12">
+                <div class="page_title">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row column1">
+            <!-- 1. Maktablar soni -->
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-building yellow_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">Maktablar soni</p>
+                            <p class="total_no">{{ total_schools }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Umumiy o'quvchilar -->
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-users blue1_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">O'quvchilar soni</p>
+                            <p class="total_no">{{ total_students_tuman }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. O'g'il bolalar -->
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-male green_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">O'g'il bolalar soni</p>
+                            <p class="total_no">{{ total_boys_tuman }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Qizlar -->
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-female red_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">Qizlar soni</p>
+                            <p class="total_no">{{ total_girls_tuman }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Maktablar bo‘yicha o‘g‘il-qizlar soni -->
+        <div class="row column1 social_media_section">
+            {% for s in school_stats %}
+            <div class="col-md-6 col-lg-3">
+                <div class="full socile_icons class{{ forloop.counter }} margin_bottom_30">
+                    <!-- Maktab nomi ustida -->
+                    <div class="social_icon class_number">{{ s.school }}</div>
+                    <div class="social_cont">
+                        <ul>
+                            <li><span><strong>{{ s.boys }}</strong></span><span>O‘g‘il bolalar</span></li>
+                            <li><span><strong>{{ s.girls }}</strong></span><span>Qizlar</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- end dashboard inner -->
+</div>
+{% endblock content %}

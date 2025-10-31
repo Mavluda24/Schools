@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish</title>
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+</head>
+<body class="login">
+
+<div class="container_login">
+    <h2>Kirish</h2>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="passport" placeholder="Login (Passport seriya va raqami)" required>
+        <input type="password" name="password" placeholder="Parol (passport seriya va raqami)" required>
+        <div class="button_login">
+            <button type="submit">Kirish</button>
+        </div>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="utf-8">
+    <title>Onlayn Test</title>
+    <link rel="stylesheet" href="{% static 'css/style_quiz.css'%}">
+</head>
+<body class="quiz-body">
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Onlayn Test</h1>
+            <div class="time-display" id="timeDisplay">
+                Vaqt: <span id="timeLeft">{{ time_left }}</span>
+            </div>
+        </div>
+
+        <form method="post" id="testForm">
+            {% csrf_token %}
+
+            <!-- Vaqtni yashirin saqlash -->
+            <input type="hidden" name="time_left" id="hiddenTimeLeft" value="{{ time_left }}">
+            <input type="hidden" name="auto_next" id="autoNext" value="0">
+
+            <!-- Progress ko'rsatgichi -->
+            <div class="progress-container">
+                <div class="progress-text">
+
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Savol va javoblar -->
+            {% if current_savol %}
+            <div class="savol-container">
+                <div class="savol-text">
+                     {{ current_savol.matn }}
+                </div>
+
+                <div class="javoblar-container">
+                    {% for javob in variantlar %}
+                    <div class="javob-item">
+                        <input type="radio"
+                               name="savol_{{ current_savol.id }}"
+                               value="{{ javob.id }}"
+                               id="javob_{{ javob.id }}"
+                               required
+                               {% if javob.id == tanlangan_javob_id %}checked{% endif %}>
+                        <label for="javob_{{ javob.id }}">
+                            {{ javob.matn }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <div class="savol-container">
+                <p style="text-align: center; font-size: 1.2em; color: #666;">
+                    Savollar mavjud emas
+                </p>
+            </div>
+            {% endif %}
+
+            <!-- Navigatsiya tugmalari -->
+            <div class="nav-buttons">
+
+                <div class="button-group">
+                    {% if has_next %}
+                    <button type="submit" name="action" value="next" class="nav-button btn-next" id="nextButton">
+                        Keyingi →
+                    </button>
+                    {% else %}
+                    <button type="submit" name="action" value="finish" class="nav-button btn-finish">
+                         Yakunlash
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Joriy savol indeksini saqlash -->
+            <input type="hidden" name="current_index" value="{{ current_index }}">
+        </form>
+    </div>
+
+    <script>
+    // Har bir savol uchun 1.5 daqiqa (90 soniya)
+    let timeLeft = {{ time_left }};
+    const timeDisplay = document.getElementById('timeDisplay');
+    const timeLeftSpan = document.getElementById('timeLeft');
+    const hiddenTimeLeft = document.getElementById('hiddenTimeLeft');
+    const autoNextInput = document.getElementById('autoNext');
+    const testForm = document.getElementById('testForm');
+    const nextButton = document.getElementById('nextButton');
+
+    function updateTime() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timeLeftSpan.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        hiddenTimeLeft.value = timeLeft;
+
+        // Vaqt ogohlantirishlari
+        if (timeLeft <= 10) { // 10 soniya
+            timeDisplay.classList.add('time-critical');
+        } else if (timeLeft <= 30) { // 30 soniya
+            timeDisplay.classList.add('time-warning');
+        }
+
+        if (timeLeft <= 0) {
+            // Vaqt tugaganda avtomatik keyingi savolga o'tish (javob saqlamasdan)
+            autoNextInput.value = '1';
+            if (nextButton) {
+                // Keyingi tugmasini bosish
+                nextButton.click();
+            } else {
+                // Agar oxirgi savol bo'lsa, yakunlash
+                testForm.submit();
+            }
+        } else {
+            timeLeft--;
+            setTimeout(updateTime, 1000);
+        }
+    }
+
+    // Vaqtni yangilashni boshlash
+    updateTime();
+</script>
+</body>
+</html>

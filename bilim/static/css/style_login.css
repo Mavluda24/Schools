@@ -1,0 +1,163 @@
+/* style_login.css */
+
+/* Umumiy stil */
+.login {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Login konteyneri */
+.container_login {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 50px 40px;
+    width: 90%;
+    max-width: 450px;
+    transition: transform 0.3s ease;
+}
+
+.container_login:hover {
+    transform: translateY(-5px);
+}
+
+/* Sarlavha */
+.container_login h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.container_login h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* Input maydonlari */
+.container_login input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container_login input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: white;
+}
+
+.container_login input::placeholder {
+    color: #95a5a6;
+}
+
+/* Tugma konteyneri */
+.button_login {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Tugma */
+.container_login button {
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.container_login button:hover {
+    background: linear-gradient(to right, #2980b9, #27ae60);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    transform: translateY(-2px);
+}
+
+.container_login button:active {
+    transform: translateY(0);
+}
+
+/* Xatolik xabari */
+.error {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 6px;
+    border-left: 4px solid #e74c3c;
+    font-weight: 500;
+}
+
+/* Mobil qurilmalar uchun moslashuvchanlik */
+@media (max-width: 768px) {
+    .container_login {
+        padding: 40px 30px;
+        margin: 20px;
+    }
+
+    .container_login h2 {
+        font-size: 24px;
+    }
+
+    .container_login input {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .container_login button {
+        padding: 14px 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container_login {
+        padding: 30px 20px;
+    }
+
+    .container_login h2 {
+        font-size: 22px;
+    }
+
+    .container_login input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .container_login button {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}

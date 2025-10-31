@@ -1,0 +1,180 @@
+/* style_natija.css */
+
+/* Umumiy stil */
+.natija-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    text-align: center;
+    overflow: hidden; /* Scrollni yo'qotish */
+}
+
+/* Asosiy sarlavha */
+.natija-h1 {
+    color: #2c3e50;
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.natija-h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* Natija konteyneri */
+.natija {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 50px 40px;
+    max-width: 500px;
+    width: 90%;
+    transition: transform 0.3s ease;
+    margin: 0 auto; /* Markazga joylash */
+}
+
+.natija:hover {
+    transform: translateY(-5px);
+}
+
+/* Natija sarlavhasi */
+.natija h2 {
+    color: #2c3e50;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* Foiz ko'rsatkichi */
+.p-natija {
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    margin: 20px 0;
+}
+
+/* Natija xabarlari */
+.yaxshi {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.qoniqarli {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.yomon {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Mobil qurilmalar uchun */
+@media (max-width: 768px) {
+    .natija-body {
+        padding: 15px;
+        overflow: hidden; /* Mobilda ham scroll yo'q */
+    }
+
+    .natija-h1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .natija {
+        padding: 40px 30px;
+        margin: 0 auto; /* Markazda qolishi uchun */
+    }
+
+    .natija h2 {
+        font-size: 22px;
+    }
+
+    .p-natija {
+        font-size: 42px;
+        padding: 18px 35px;
+    }
+
+    .yaxshi,
+    .qoniqarli,
+    .yomon {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .natija-body {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+    .natija-h1 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .natija {
+        padding: 30px 20px;
+        margin: 0 auto;
+    }
+
+    .natija h2 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .p-natija {
+        font-size: 36px;
+        padding: 15px 30px;
+        margin: 15px 0;
+    }
+
+    .yaxshi,
+    .qoniqarli,
+    .yomon {
+        font-size: 16px;
+        padding: 10px 15px;
+        margin-top: 15px;
+    }
+}

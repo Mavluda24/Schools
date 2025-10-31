@@ -1,0 +1,121 @@
+/* style_science.css */
+
+/* Umumiy stil */
+.body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Sarlavha */
+.title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* Fanlar konteyneri */
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Fan kartasi */
+.link_fan {
+    text-decoration: none;
+    color: inherit;
+}
+
+.subject {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e1e8ed;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: #3498db;
+}
+
+/* Fan rasmi */
+.subject-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Fan nomi */
+.subject-name {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Bo'sh xabar */
+.subjects p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Kichik ekranlar uchun */
+@media (max-width: 1024px) {
+    .subjects {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .subjects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .subjects {
+        grid-template-columns: 1fr;
+    }
+}

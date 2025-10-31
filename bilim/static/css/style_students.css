@@ -1,0 +1,133 @@
+/* style_students.css */
+
+/* Umumiy stil */
+.si-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.si-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.si-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Sarlavha */
+.si-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.si-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* Xatolik xabari */
+.si-error {
+    color: #e74c3c;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 6px;
+    border-left: 4px solid #e74c3c;
+}
+
+/* Ma'lumot maydonlari */
+.si-field {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.si-field:hover {
+    background-color: #edf2f7;
+    transform: translateX(5px);
+}
+
+.si-field strong {
+    color: #2c3e50;
+    display: inline-block;
+    min-width: 80px;
+}
+
+/* Tasdiqlash tugmasi */
+.si-btn-confirm {
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.si-btn-confirm:hover {
+    background: linear-gradient(to right, #2980b9, #27ae60);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    transform: translateY(-2px);
+}
+
+.si-btn-confirm:active {
+    transform: translateY(0);
+}
+
+/* Mobil qurilmalar uchun moslashuvchanlik */
+@media (max-width: 576px) {
+    .si-container {
+        padding: 20px;
+        margin: 15px;
+    }
+    
+    .si-title {
+        font-size: 20px;
+    }
+    
+    .si-field {
+        padding: 12px;
+    }
+    
+    .si-btn-confirm {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}

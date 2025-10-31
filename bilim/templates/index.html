@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilimni baholash agentligi</title>
+    <link rel="stylesheet" href="{% static 'css/style_index.css'%}">
+</head>
+<body class="index-body">
+
+    <div class="container_base">
+        <h1>Bilimni baholash agentligiga xush kelibsiz!</h1>
+        <h3>Xizmatlardan foydalanish uchun kirishni tanlang.</h3>
+        <a href="{% url 'login' %}" class="btn">Kirish</a>
+    </div>
+</body>
+</html>

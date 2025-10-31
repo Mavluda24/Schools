@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="utf-8">
+    <title>Test Natijasi</title>
+    <link rel="stylesheet" href="{% static 'css/style_natija.css'%}">
+</head>
+<body class="natija-body">
+    <h1 class="natija-h1">Test Natijasi</h1>
+
+    <div class="natija">
+        <h2>Sizning natijangiz:</h2>
+        <p><strong class="p-natija">{{ foiz|floatformat:1 }}%</strong></p>
+
+        {% if foiz >= 80 %}
+            <p class="yaxshi">Ajoyib natija! 🎉</p>
+        {% elif foiz >= 60 %}
+            <p class="qoniqarli">Yaxshi natija! 👍</p>
+        {% else %}
+            <p class="yomon">Qoniqarsiz!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

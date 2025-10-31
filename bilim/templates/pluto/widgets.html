@@ -1,0 +1,90 @@
+{% extends 'pluto/base.html' %}
+{% load static %}
+{% block content %}
+<!-- dashboard inner -->
+<div class="midde_cont">
+    <div class="container-fluid">
+        <div class="row column_title">
+            <div class="col-md-12">
+                <div class="page_title">
+                    <h2>MAKTABLARNING REYTING NATIJALARI</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Chap tomondagi: Fanlar kesimi -->
+            <div class="col-md-6">
+                <div class="dark_bg full margin_bottom_30">
+                    <div class="full graph_head">
+                        <div class="heading1 margin_0">
+                            <h2>Maktablar bo‘yicha fanlar kesimi</h2>
+                        </div>
+                    </div>
+                    <div class="full graph_revenue" style="max-height: 600px; overflow-y: auto;">
+                        {% for maktab in fan_reytinglar %}
+                        <div class="content mb-4 p-3 bg-dark text-light rounded">
+                            <h4 class="mb-3">
+                                <i class="fa fa-building text-warning"></i> {{ maktab.maktab }}
+                            </h4>
+                            {% for f in maktab.fanlar %}
+                            <p class="mb-1">{{ f.fan }} <span class="float-right">{{ f.foiz|default:0 }}%</span></p>
+                            <div class="progress mb-2" style="height: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated
+                            {% if f.foiz|default:0 > 85 %} bg-success
+                            {% elif f.foiz|default:0 > 70 %} bg-info
+                            {% elif f.foiz|default:0 > 50 %} bg-warning
+                            {% else %} bg-danger {% endif %}"
+                                     role="progressbar"
+                                     style="width: {{ f.foiz|default:0 }}%;">
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">Fanlar bo‘yicha ma’lumot yo‘q.</p>
+                            {% endfor %}
+                        </div>
+                        {% empty %}
+                        <p class="text-center text-muted">Maktablar bo‘yicha ma’lumot yo‘q.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- O‘ng tomondagi: Umumiy reyting foizi -->
+            <div class="col-md-6">
+                <div class="dark_bg full margin_bottom_30">
+                    <div class="full graph_head">
+                        <div class="heading1 margin_0">
+                            <h2>Maktablarning umumiy reyting foizlari</h2>
+                        </div>
+                    </div>
+                    <div class="full graph_revenue" style="max-height: 600px; overflow-y: auto;">
+                        {% for maktab in umumiy_reytinglar %}
+                        <div class="content mb-4 p-3 bg-dark text-light rounded">
+                            <h4 class="mb-3">
+                                <i class="fa fa-building text-warning"></i> {{ maktab.maktab }}
+                            </h4>
+                            <p class="mb-1 font-weight-bold">Umumiy reyting <span class="float-right">{{ maktab.foiz|default:0 }}%</span>
+                            </p>
+                            <div class="progress mb-2" style="height: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated
+                            {% if maktab.foiz|default:0 > 85 %} bg-success
+                            {% elif maktab.foiz|default:0 > 70 %} bg-info
+                            {% elif maktab.foiz|default:0 > 50 %} bg-warning
+                            {% else %} bg-danger {% endif %}"
+                                     role="progressbar"
+                                     style="width: {{ maktab.foiz|default:0 }}%;">
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p class="text-center text-muted">Maktablar bo‘yicha ma’lumot yo‘q.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- end dashboard inner -->
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'quvchi ma'lumotlari</title>
+    <link rel="stylesheet" href="{% static 'css/style_students.css'%}">
+</head>
+<body class="si-body">
+
+<div class="si-container">
+    <h2 class="si-title">O'quvchi ma'lumotlari</h2>
+    <!-- Xatolik xabari bo'lsa chiqariladi -->
+    {% if error_message %}
+        <p style="color:red; font-weight:bold; text-align:center; margin-bottom: 15px;">
+            {{ error_message }}
+        </p>
+    {% endif %}
+
+    <p class="si-field"><strong>F.I.Sh:</strong> {{ student.FISh }}</p>
+    <p class="si-field"><strong>Sinfi:</strong> {{ student.sinf }}</p>
+    <p class="si-field"><strong>Maktabi:</strong> {{ student.school }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="si-btn-confirm">Tasdiqlash</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* style_student.css */
+
+/* Umumiy stil */
+.students-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Filtr konteyneri */
+.filter-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.students-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.students-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.students-select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Statistik ma'lumotlar */
+p {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-left: 5px solid #3498db;
+}
+
+/* Sarlavha */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 35px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+/* Jadval */
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.students-table thead {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.students-table th {
+    padding: 18px 15px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.students-table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.students-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.students-table tbody tr:hover {
+    background-color: #edf2f7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.students-table td {
+    padding: 15px;
+    color: #2c3e50;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+/* ID ustuni */
+.students-table td:first-child {
+    font-weight: 600;
+    color: #3498db;
+    text-align: center;
+}
+
+/* FISH ustuni */
+.students-table td:nth-child(2) {
+    font-weight: 500;
+    min-width: 250px;
+}
+
+/* SINF ustuni */
+.students-table td:nth-child(5) {
+    font-weight: 600;
+    text-align: center;
+    color: #e74c3c;
+}
+
+/* SCHOOL ustuni */
+.students-table td:last-child {
+    min-width: 300px;
+}
+
+/* Mobil qurilmalar uchun moslashuvchanlik */
+@media (max-width: 768px) {
+    .students-body {
+        padding: 10px;
+    }
+
+    .filter-container {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .students-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .students-table td:nth-child(2) {
+        min-width: 200px;
+    }
+
+    .students-table td:last-child {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+
+    .students-table td:nth-child(2) {
+        min-width: 150px;
+    }
+
+    .students-table td:last-child {
+        min-width: 200px;
+    }
+}

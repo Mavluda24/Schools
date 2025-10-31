@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'QUVCHILAR JADVALI</title>
+    <link rel="stylesheet" href="{% static 'css/style_student.css'%}">
+</head>
+<body class="students-body">
+<div class="filter-container">
+    <form method="get">
+        <label for="sinf" class="students-label">Sinfni tanlang:</label>
+        <select name="sinf" id="sinf" onchange="this.form.submit()" class="students-select">
+            <option value="">Barchasi</option>
+            {% for s in sinflar %}
+                <option value="{{ s }}" {% if request.GET.sinf == s %} selected{% endif %}>
+                    {{ s }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+{% if tanlangan_sinf %}
+    <p><b>"{{ tanlangan_sinf }}" sinfida jami: {{ total_students }} ta o'quvchi bor</b></p>
+{% else %}
+    <p><b>Barcha o‘quvchilar soni: {{ total_students }} ta</b></p>
+{% endif %}
+
+<h1>O'QUVCHILAR JADVALI</h1>
+<table class="students-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FISH</th>
+            <th>SERIYA</th>
+            <th>RAQAM</th>
+            <th>SINF</th>
+            <th>SCHOOL</th>
+            <th>JINSI</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ s.FISh }}</td>
+            <td>{{ s.seriya }}</td>
+            <td>{{ s.raqami }}</td>
+            <td>{{ s.sinf }}</td>
+            <td>{{ s.school }}</td>
+            <td>{{ s.jins }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

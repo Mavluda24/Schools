@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ sinf.nomi }} sinf uchun fanlar</title>
+  <link rel="stylesheet" href="{% static 'css/style_science.css' %}">
+</head>
+<body class="body">
+  <h1 class="title">{{ sinf.nomi }} uchun fanlar</h1>
+  <div class="subjects">
+      {% for fan in kitob %}
+        <a href="{% url 'tests' fan.id sinf.id %}" class="link_fan">
+            <div class="subject">
+                <img src="/media/{{ fan.rasmi }}" alt="{{ fan.nomi }}" class="subject-img">
+                <p class="subject-name">{{ fan.nomi }}</p>
+            </div>
+        </a>
+      {% empty %}
+        <p>Bu sinfga fanlar mavjud emas.</p>
+      {% endfor %}
+  </div>
+</body>
+</html>
